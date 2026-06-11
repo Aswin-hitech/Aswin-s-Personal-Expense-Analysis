@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="d-flex align-items-center mb-4">
+            <a href="/" class="btn btn-sm btn-outline-light me-3">&larr; Back</a>
+            <h2 class="page-title mb-0">Add New Expense</h2>
+        </div>
+
+        <div class="glass-card">
+            <form method="POST" id="addExpenseForm">
+                <div class="row mb-3">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <label class="form-label text-muted">Date *</label>
+                        <input type="date" name="entry_date" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Amount (₹) *</label>
+                        <input type="number" step="0.01" name="amount" class="form-control" placeholder="0.00" required>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label text-muted">Category *</label>
+                    <input type="text" name="category" class="form-control" placeholder="e.g. Food, Transport, Utilities" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label text-muted">Description</label>
+                    <textarea name="description" class="form-control" rows="2" placeholder="Brief details about the expense..."></textarea>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <label class="form-label text-muted">Location</label>
+                        <input type="text" name="location" class="form-control" placeholder="e.g. Supermarket, Online">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Payment Mode</label>
+                        <input type="text" name="payment_mode" class="form-control" placeholder="e.g. Cash, Credit Card, UPI">
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg" onclick="this.innerHTML='<span class=\'spinner-border spinner-border-sm\' role=\'status\' aria-hidden=\'true\'></span> Saving...'">
+                        Save Expense
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
